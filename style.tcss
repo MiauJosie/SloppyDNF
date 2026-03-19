@@ -1,0 +1,31 @@
+/* style.tcss */
+
+Screen {
+    background: $surface;
+}
+
+Header {
+    text-style: bold;
+    background: $primary;
+    color: $text;
+}
+
+ListView {
+    margin: 1 2;
+    border: tall $accent;
+    height: 1fr;
+    background: $surface;
+}
+
+ListItem {
+    padding: 1;
+    background: $surface;
+}
+
+ListItem:hover {
+    background: $accent 20%;
+}
+
+Label {
+    margin: 1 2;
+}
