@@ -14,4 +14,4 @@ Since this is a DNF frontend, you'll need to be on a system that actually uses D
 
 ## License
 
-[MIT](LICENSE) (or whatever you prefer)
+[MIT](LICENSE)
