@@ -1,10 +1,13 @@
 import dnf
 
-def get_packages(search_term):
+
+def get_all():
     base = dnf.Base()
     base.read_all_repos()
     base.fill_sack(load_system_repo=True, load_available_repos=True)
 
-    query = base.sack.query().available().filter(name__substr=search_term)
-    
-    return list(query)
+    available = list(base.sack.query().available())
+    installed = list(base.sack.query().installed())
+    upgrades = list(base.sack.query().upgrades())
+
+    return available, installed, upgrades

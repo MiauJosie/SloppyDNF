@@ -1,31 +1,187 @@
 /* style.tcss */
+$background: #282828;
+$background-hard: #1d2022;
+/*$background-hard: #1d2022;*/
+$background-soft: #32302f;
+$background1: #3c3836;
+$background2: #504945;
+$background3: #665c54;
+$background4: #7c6f64;
+$foreground: #ebdbb2;
+$foreground1: #d5c4a1;
+$foreground2: #bdae93;
+$foreground3: #a89984;
+$red: #cc241d;
+$green: #98971a;
+$yellow: #d79921;
+$blue: #458588;
+$purple: #b16286;
+$aqua: #689d6a;
+$orange: #d65d0e;
+$red-bright: #fb4934;
+$green-bright: #b8bb26;
+$yellow-bright: #fabd2f;
+$blue-bright: #83a598;
+$purple-bright: #d3869b;
+$aqua-bright: #8ec07c;
+$orange-bright: #fe8019;
 
-Screen {
-    background: $surface;
+* {
+    scrollbar-color: $blue 10%;
+    scrollbar-color-hover: $blue 30%;
+    scrollbar-color-active: $blue 70%;
+    scrollbar-background: $background;
+    scrollbar-background-hover: $background;
+    scrollbar-background-active: $background;
+    scrollbar-size-vertical: 1;
+    &:focus {
+        scrollbar-color: $blue 10%;
+        background-tint: $foreground 0%;
+    }   
 }
 
-Header {
-    text-style: bold;
-    background: $primary;
-    color: $text;
+Screen {
+    background: $background-hard;
+    padding: 1 2;
 }
 
 ListView {
-    margin: 1 2;
-    border: tall $accent;
-    height: 1fr;
-    background: $surface;
+
 }
 
 ListItem {
-    padding: 1;
-    background: $surface;
+
 }
 
-ListItem:hover {
-    background: $accent 20%;
+#header {
+    height: 1;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1;
 }
 
-Label {
-    margin: 1 2;
+#main {
+    height: 1fr;
+    width: 100%;
+
+    #package_stuff {
+        height: 100%;
+        width: 2fr;
+        margin-right: 1;
+
+        #package_information {
+            height: 2fr;
+            border: round $background1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: $background-hard;
+
+            &:focus {
+                border: round $background3;
+            }
+        }
+
+        #package_log {
+            height: 1fr;
+            border: round $background1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: $background-hard;
+
+            &:focus {
+                border: round $background3;
+            }
+        }
+    }
+
+    #package_selector {
+        height: 100%;
+        width: 3fr;
+        border: round $background1;
+        border-subtitle-align: left;
+        border-title-align: right;
+
+        &:focus-within {
+            border: round $background3;
+        }
+
+        #tabs {
+            #tab-all, #tab-installed, #tab-updates {
+                #all, #installed, #updates {
+                    background: $background-hard;
+                    height: 1fr;
+                    overflow-x: hidden;
+
+                    & > .datatable--cursor {
+                        background: $blue 10%;
+                        color: $foreground2;
+                    }
+
+                    & > .datatable--hover {
+                        background: $blue 30%;
+                        color: $foreground2;
+                    }
+
+                    &:focus {
+                        & > .datatable--cursor {
+                            background: $blue 70%;
+                            color: $foreground;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #options {
+
+
+    }
+
+
+        #searcher {
+            height: 1;
+            dock: bottom;
+            border: none;
+            padding: 0 1;
+            background: $background-soft;
+            color: $foreground2;
+            
+            &>.input--cursor {
+                background: $foreground2;
+                color: $background1;
+            }
+
+            &:focus {
+                background: $background1;
+            }
+    }
+}
+
+#progress {
+    height: 1;
+    width: 100%;
+    layout: horizontal;
+    align: center middle;
+    margin-top: 1;
+
+    Bar {
+        height: 1;
+        width: 94%;
+    }
+
+    Bar > .bar--bar {
+        color: $blue;
+        background: $surface;
+    }
+
+    Bar > .bar--indeterminate {
+        color: $blue;
+        background: $surface;
+    }
+
+    Bar > .bar--complete {
+        color: $green;
+        background: $surface;
+    }
 }
